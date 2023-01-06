@@ -20,6 +20,8 @@
 		57B6AB3229684A6600C84B06 /* SwiftOxide in Frameworks */ = {isa = PBXBuildFile; productRef = 57B6AB3129684A6600C84B06 /* SwiftOxide */; };
 		57B6AB34296857BB00C84B06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 57B6AB33296857BB00C84B06 /* README.md */; };
 		57B6AB35296857BB00C84B06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 57B6AB33296857BB00C84B06 /* README.md */; };
+		57B6AB3729685DE400C84B06 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 57B6AB3629685DE300C84B06 /* LICENSE.md */; };
+		57B6AB3829685DE400C84B06 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 57B6AB3629685DE300C84B06 /* LICENSE.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,7 @@
 		57969A3829621B1100F8CAC5 /* MunchausenNumbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MunchausenNumbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57969A5529621B7B00F8CAC5 /* MunchausenNum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MunchausenNum.swift; sourceTree = "<group>"; };
 		57B6AB33296857BB00C84B06 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		57B6AB3629685DE300C84B06 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 		57969A2529621B0C00F8CAC5 = {
 			isa = PBXGroup;
 			children = (
+				57B6AB3629685DE300C84B06 /* LICENSE.md */,
 				57B6AB33296857BB00C84B06 /* README.md */,
 				57969A2A29621B0C00F8CAC5 /* Shared */,
 				57969A3929621B1100F8CAC5 /* macOS */,
@@ -207,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57B6AB34296857BB00C84B06 /* README.md in Resources */,
+				57B6AB3729685DE400C84B06 /* LICENSE.md in Resources */,
 				57969A3F29621B1100F8CAC5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B6AB3829685DE400C84B06 /* LICENSE.md in Resources */,
 				57B6AB35296857BB00C84B06 /* README.md in Resources */,
 				57969A4029621B1100F8CAC5 /* Assets.xcassets in Resources */,
 				570963B42964B74B00036659 /* MunchausenNumbers.app in Resources */,
