@@ -34,22 +34,8 @@ struct ContentView: View {
             }
             
             Section(header: Text("// Münchhausen Numbers //")) {
-                HStack {
-                    Text(munchausenNum.wholeNumbers.map(String.init).joined(separator: ", "))
-                        .macOS { $0.padding(.bottom) }
-                    
-                    Spacer()
-                
-                    if #available(macOS 12.0, *) {
-                        Button("Erase", role: .destructive, action: { munchausenNum.wholeNumbers.removeAll()
-                        })
-                    } else {
-                        // Fallback on earlier versions
-                        Button("Erase", action: {
-                            munchausenNum.wholeNumbers.removeAll()
-                        })
-                    }
-                }
+                Text(munchausenNum.wholeNumbers.map(String.init).joined(separator: ", "))
+                    .macOS { $0.padding(.bottom) }
             }
             
             Section(header: Text("// Elapsed Time //")) {
@@ -60,18 +46,34 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    Button("Run Code", action: {
+                    if #available(macOS 12.0, *) {
+                        Button("Clear", role: .destructive, action: {
+                            reset()
+                        })
+                    } else {
+                        // Fallback on earlier versions
+                        Button("Clear", action: {
+                            reset()
+                        })
+                    }
+                }
+            }
+            .macOS { $0.padding([.top, .trailing]) }
+            
+            Section {
+                HStack {
+                    Spacer()
+                    
+                    Button("Execute", action: {
                         if selectedCode == "Swift" {
                             measureExecutionTime(of: munchausenNum.swiftMunchausenNumbers)
                         } else {
                             measureExecutionTime(of: munchausenNum.rustMunchausenNumbers)
                         }
                     })
-                    
-                    Spacer()
                 }
             }
-            .macOS { $0.padding([.top, .bottom, .trailing]) }
+            .macOS { $0.padding([.bottom, .trailing]) }
         }
         .disabled(isLoading)
         .macOS { $0.padding() }
@@ -87,6 +89,12 @@ struct ContentView: View {
         executionTime = diff
         
         isLoading.toggle()
+    }
+    
+    // Reset the Münchhausen function output and elepsed time
+    func reset() {
+        munchausenNum.wholeNumbers.removeAll()
+        self.executionTime = 0.00
     }
 }
 

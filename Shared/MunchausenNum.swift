@@ -18,7 +18,7 @@ class MunchausenNum: ObservableObject {
     // Here is how we are searching for Munchausen numbers using Swift Lang.
     func swiftMunchausenNumbers() {
         // Pre-caching the power for all of the digits; 0^0 will be inserted into the cache array.
-        let naturalNumbers: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        let naturalNumbers: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         var cache: [Int] = naturalNumbers.map({ Int(pow(Double($0), Double($0))) })
         cache.insert(0, at: 0)
         
