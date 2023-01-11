@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var selectedCode = "Swift"
     @State private var codes = ["Rust", "Swift"]
     @State private var executionTime: Double = 0.00
+    @State private var rustExecutionTime: Double = 0.00
+    @State private var swiftExecutionTime: Double = 0.00
     @State private var convertUnit: Bool = false
     @State private var isLoading: Bool = false
     
@@ -39,26 +41,28 @@ struct ContentView: View {
             }
             
             Section(header: Text("// Elapsed Time //")) {
-                Text("\(executionTime, specifier: "%.2f") seconds")
+                //Text("\(executionTime, specifier: "%.2f") seconds")
+                HStack {
+                    Text("Rust: \(rustExecutionTime, specifier: "%.2f") seconds")
+                    Text("vs")
+                    Text("Swift: \(swiftExecutionTime, specifier: "%.2f") seconds")
+            
+                }
             }
             
             Section {
-                HStack {
-                    Spacer()
-                    
-                    if #available(macOS 12.0, *) {
-                        Button("Clear", role: .destructive, action: {
-                            reset()
-                        })
-                    } else {
-                        // Fallback on earlier versions
-                        Button("Clear", action: {
-                            reset()
-                        })
-                    }
+                if #available(macOS 12.0, *) {
+                    Button("Clear", role: .destructive, action: {
+                        reset()
+                    })
+                } else {
+                    // Fallback on earlier versions
+                    Button("Clear", action: {
+                        reset()
+                    })
                 }
             }
-            .macOS { $0.padding([.top, .trailing]) }
+            .macOS { $0.padding([.top, .bottom, .trailing]) }
             
             Section {
                 HStack {
@@ -71,6 +75,8 @@ struct ContentView: View {
                             measureExecutionTime(of: munchausenNum.rustMunchausenNumbers)
                         }
                     })
+                    
+                    Spacer()
                 }
             }
             .macOS { $0.padding([.bottom, .trailing]) }
@@ -88,6 +94,12 @@ struct ContentView: View {
         let diff = CFAbsoluteTimeGetCurrent() - start
         executionTime = diff
         
+        if selectedCode == "Rust" {
+            rustExecutionTime = diff
+        } else {
+            swiftExecutionTime = diff
+        }
+        
         isLoading.toggle()
     }
     
@@ -95,6 +107,8 @@ struct ContentView: View {
     func reset() {
         munchausenNum.wholeNumbers.removeAll()
         self.executionTime = 0.00
+        self.rustExecutionTime = 0.00
+        self.swiftExecutionTime = 0.00
     }
 }
 
