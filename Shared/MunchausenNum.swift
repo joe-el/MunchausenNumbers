@@ -52,6 +52,6 @@ class MunchausenNum: ObservableObject {
     
     // And here is how we are searching for Münchhausen numbers using Rust Lang.
     func rustMunchausenNumbers() {
-        wholeNumbers = SwiftOxide().rustMunchausenNum()
+        wholeNumbers = SwiftOxide.rustMunchausenNum()
     }
 }
